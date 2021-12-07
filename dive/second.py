@@ -3,16 +3,18 @@ lines = f.readlines()
 
 horizontal = 0
 depth = 0
+aim = 0
 
 for l in lines:
     pos, n = l.strip().split()
     n = int(n)
     if pos == "forward":
         horizontal += n
+        depth += aim * n
     if pos == "down":
-        depth += n
+        aim += n
     if pos == "up":
-        depth -= n
+        aim -= n
 f.close()
 
 print("horizontal ", horizontal)
